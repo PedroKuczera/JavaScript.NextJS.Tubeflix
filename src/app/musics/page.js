@@ -1,9 +1,9 @@
-import styles from './page.module.css'
+import style from './page.module.css'
 
 export default function MusicsPage() {
     return (
         <>
-            <h2 className={styles.title}>Músicas</h2>
+            <h2 className={style.title}>Músicas</h2>
         </>
     )
 }
