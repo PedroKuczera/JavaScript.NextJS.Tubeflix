@@ -4,13 +4,15 @@ import { createContext, useEffect, useState } from "react";
 export const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
-    const [ themeLight, setThemeLight ] = useState(() => {
+    const [ themeLight, setThemeLight ] = useState(false)
+
+    useEffect(() => {
         const themeName =
-        localStorage.getItem('theme') ??
-        document.documentElement.getAttribute('data-theme') ??
-        'dark'
-    return themeName === 'light'
-    })
+            localStorage.getItem('theme') ??
+            document.documentElement.getAttribute('data-theme') ??
+            'dark'
+        setThemeLight (themeName === 'light')
+    }, [])
 
     useEffect(() => {
         const themeName = themeLight ? 'light' : 'dark'
